@@ -160,7 +160,8 @@ class FishGui():
     def load_image(self):
         """Callback for pressing the Load Image button.
         """
-        filename = fd.askopenfilename(filetypes=[("Jpeg files", "*.jpeg"),
+        filename = fd.askopenfilename(initialdir=".",
+                                        filetypes=[("Jpeg files", "*.jpeg"),
                                                 ("Jpg files", "*.jpg"),
                                                 ("Png files", "*.png"), 
                                                 ("Tiff files", "*.tiff"), 
@@ -235,7 +236,7 @@ class FishGui():
             # Näytetään tuloskuva
             result_img = cv2.cvtColor(self.img, cv2.COLOR_BGR2RGB)
             plt.imshow(result_img)
-            plt.title(f"Kala on {predicted_class}")
+            plt.title(f"Kala on {predicted_class.lower()}")
             plt.show(block=True)
 
         
